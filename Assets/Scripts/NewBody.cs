@@ -14,6 +14,7 @@ public class NewBody : MonoBehaviour
     public void AddBody()
     {
         var newBody = Instantiate(Sim.template);
+        newBody.GetComponent<MeshRenderer>().enabled = true;
         newBody.transform.tag = "Body";
         Sim.bodyList.Add(newBody);
         Sim.BodyDropdown.AddOptions(new List<string>{"Body #" + (Sim.bodyList.ToArray().Length - 1).ToString()});

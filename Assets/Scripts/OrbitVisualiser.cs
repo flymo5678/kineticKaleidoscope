@@ -67,7 +67,7 @@ public class OrbitVisualiser : MonoBehaviour
                 for (int j = 0; j < fakeBodies.Length; j++)
                 {
                     currentVel += Calculate.Acceleration(fakeBodies[i].position, fakeBodies[j].position,
-                        fakeBodies[j].mass) * timeStep;
+                            fakeBodies[j].mass) * timeStep;
                 }
                 Vector3 nextPos = fakeBodies[i].position + currentVel * timeStep;
                 fakeBodies[i].velocity = currentVel;

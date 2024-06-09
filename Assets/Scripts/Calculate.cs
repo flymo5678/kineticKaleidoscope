@@ -16,4 +16,17 @@ public class Calculate : MonoBehaviour
 
         return acceleration;
     }
+    
+    public static Vector3 DoubleBodyAcceleration(Vector3 body1Pos, Vector3 body2Pos, float mass, float mass2)
+    {
+        Vector3 acceleration = Vector3.zero;
+        if (body1Pos != body2Pos)
+        {
+            float sqrDistance = (body2Pos - body1Pos).sqrMagnitude;
+            Vector3 direction = (body2Pos - body1Pos).normalized;
+            acceleration += direction * Sim.G * (mass * mass2) / sqrDistance;
+        }
+
+        return acceleration;
+    }
 }

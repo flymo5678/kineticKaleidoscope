@@ -13,15 +13,16 @@ public class BodyMovement : MonoBehaviour
     public void UpdatePos()
     {
         float timestep = Time.fixedDeltaTime;
-        if (ignoreOthers == false)
-        {
             foreach (var body in Sim.bodyList.ToArray())
             {
                 currentVel += Calculate.Acceleration(transform.position, body.transform.position,
-                    body.GetComponent<Rigidbody>().mass) * timestep;
+                        body.GetComponent<Rigidbody>().mass) * timestep;
             }
-            
-            gameObject.transform.position += currentVel * timestep;
-        }
+
+            if (ignoreOthers == false)
+            {
+                gameObject.transform.position += currentVel * timestep;
+            }
     }
-}
+    }
+
